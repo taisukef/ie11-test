@@ -1,0 +1,25 @@
+{
+  "name": "ie11-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "deno bundle src/index.js lib/bundle.js && deno run -A addimports.js lib/bundle.js lib_with_imports/bundle.js && babel lib_with_imports/bundle.js -d lib_ie11 && webpack",
+    "babelx": "babel --plugins @babel/plugin-transform-runtime --plugins @babel/core lib/bundle.js -d lib_ie11",
+    "babel": "babel lib/bundle.js -d lib_ie11",
+    "webpack": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "core-js": "^3.15.2"
+  }
+}
